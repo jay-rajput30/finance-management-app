@@ -1,11 +1,18 @@
 import Expense from "../models/expense.model.mjs";
+import { CATEGORIES } from "../utils/finance.categories.util.mjs";
 
 export const addExpense = async (expenseData) => {
   try {
     const newExpense = new Expense(expenseData);
-    const expenseAdded = await newExpense.save();
-    if (expenseAdded) {
-      return { success: true, data: expenseAdded, error: null };
+
+    const categoryFound = CATEGORIES.find(
+      (item) => item === expenseData.category
+    );
+    if (categoryFound) {
+      const expenseAdded = await newExpense.save();
+      if (expenseAdded) {
+        return { success: true, data: expenseAdded, error: null };
+      }
     } else {
       return { success: false, data: null, error: "unable to add expense" };
     }
