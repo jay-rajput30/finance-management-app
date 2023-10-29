@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
 
 :root {
-  box-sizing: border-box;
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
@@ -17,8 +16,13 @@
   --color-body-text: #2a2a2a;
   --color-primary: #ff8e3c;
   --color-button-text: #0d0d0d;
-  --colr-secondary: #fffffe;
+  --color-secondary: #fffffe;
   --color-tertiary: #d9376e;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,

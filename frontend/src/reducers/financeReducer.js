@@ -14,6 +14,9 @@ export const financeReducer = (state = initialState, action) => {
     case "ADD_INCOME_SUCCESS": {
       return { ...state, loading: false, income: action.payload };
     }
+    case "ADD_INCOME_FAILURE": {
+      return { ...state, loading: false, error: action.payload };
+    }
     default:
       return state;
   }
