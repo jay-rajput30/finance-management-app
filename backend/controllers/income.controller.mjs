@@ -1,11 +1,18 @@
 import Income from "../models/income.model.mjs";
+import { CATEGORIES } from "../utils/finance.categories.util.mjs";
 
 export const addIncome = async (incomeData) => {
   try {
     const newIncome = new Income(incomeData);
-    const incomeAdded = await newIncome.save();
-    if (incomeAdded) {
-      return { success: true, data: incomeAdded, error: null };
+
+    const categoryFound = CATEGORIES.find(
+      (item) => item === incomeData.category
+    );
+    if (categoryFound) {
+      const incomeAdded = await newIncome.save();
+      if (incomeAdded) {
+        return { success: true, data: incomeAdded, error: null };
+      }
     } else {
       return { success: false, data: null, error: "unable to add income" };
     }
