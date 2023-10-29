@@ -9,9 +9,11 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.mjs",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
   "scripts": {
-    "start": "node index.mjs",
+    "start": "nodemon index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
