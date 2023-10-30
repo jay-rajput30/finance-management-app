@@ -3,10 +3,18 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className={styles.navbarContainer}>
-      <NavLink to="/">dashboard</NavLink>
-      <NavLink to="/income">income</NavLink>
-      <NavLink to="/expense">expense</NavLink>
-      <NavLink to="/saving">income</NavLink>
+      <NavLink to="/" className={styles.navlink}>
+        dashboard
+      </NavLink>
+      <NavLink to="/income" className={styles.navlink}>
+        income
+      </NavLink>
+      <NavLink to="/expense" className={styles.navlink}>
+        expense
+      </NavLink>
+      <NavLink to="/saving" className={styles.navlink}>
+        saving
+      </NavLink>
     </nav>
   );
 };
