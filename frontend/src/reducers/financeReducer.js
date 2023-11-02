@@ -2,8 +2,8 @@ const initialState = {
   loading: false,
   error: null,
   incomes: [],
-  expense: [],
-  saving: [],
+  expenses: [],
+  savings: [],
 };
 
 export const financeReducer = (state = initialState, action) => {
@@ -18,14 +18,14 @@ export const financeReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        income: [...state.income, action.payload],
+        incomes: [...state.incomes, action.payload],
       };
     }
     case "ADD_INCOME_FAILURE": {
       return { ...state, loading: false, error: action.payload };
     }
     case "GET_INCOME_SUCCESS": {
-      return { ...state, loading: false, income: action.payload };
+      return { ...state, loading: false, incomes: action.payload };
     }
     case "GET_INCOME_FAILURE": {
       return { ...state, loading: false, error: action.payload };
@@ -34,14 +34,14 @@ export const financeReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        expense: [...state.expense, action.payload],
+        expenses: [...state.expenses, action.payload],
       };
     }
     case "ADD_EXPENSE_FAILURE": {
       return { ...state, loading: false, error: action.payload };
     }
     case "GET_EXPENSE_SUCCESS": {
-      return { ...state, loading: false, expense: action.payload };
+      return { ...state, loading: false, expenses: action.payload };
     }
     case "GET_EXPENSE_FAILURE": {
       return { ...state, loading: false, error: action.payload };
@@ -50,14 +50,14 @@ export const financeReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        saving: [...state.saving, action.payload],
+        savings: [...state.savings, action.payload],
       };
     }
     case "ADD_SAVING_FAILURE": {
       return { ...state, loading: false, error: action.payload };
     }
     case "GET_SAVING_SUCCESS": {
-      return { ...state, loading: false, saving: action.payload };
+      return { ...state, loading: false, savings: action.payload };
     }
     case "GET_SAVING_FAILURE": {
       return { ...state, loading: false, error: action.payload };

@@ -5,7 +5,7 @@
   gap: var(--space-3);
   width: 90%;
   border: 1px solid var(--color-body-text);
-  margin: var(--space-1) auto;
+  margin: 0 auto;
   border-radius: 5px;
   padding: var(--space-2);
 }

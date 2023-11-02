@@ -7,13 +7,21 @@ import cors from "cors";
 
 const app = express();
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
+app.use((req, res, next) => {
+  res.header({ "Access-Control-Allow-Origin": "*" });
+  next();
+});
+dbConnect();
+
 app.use("/income", incomeRouter);
 app.use("/expense", expenseRouter);
 app.use("/saving", savingRouter);
-app.use(cors({ origins: ["http://localhost:3002"], credentials: true }));
-
-dbConnect();
-
 app.get("/", (req, res) => {
   res.send("finance management app");
 });

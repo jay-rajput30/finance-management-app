@@ -20,7 +20,7 @@ export const addNewIncome = (incomeData) => async (dispatch) => {
   }
 };
 
-export const getAllIcome = () => async (dispatch) => {
+export const getAllIncome = () => async (dispatch) => {
   try {
     dispatch({ type: "DATA_LOADING" });
     const response = await fetch("http://localhost:3002/income");

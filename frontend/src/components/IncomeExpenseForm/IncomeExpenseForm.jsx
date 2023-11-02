@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { INCOME_EXPENSE_CATEGORIES } from "../../../utils/incomeExpense.categories";
 import styles from "./IncomeExpenseForm.module.css";
+import { useDispatch } from "react-redux";
+import { addNewIncome } from "../../actions/actions";
 
 const IncomeExpenseForm = ({ type }) => {
   const [formData, setFormData] = useState({
@@ -8,9 +10,10 @@ const IncomeExpenseForm = ({ type }) => {
     description: "",
     category: INCOME_EXPENSE_CATEGORIES[0],
   });
+  const dispatch = useDispatch();
   const incomeExpenseFormSubmitHandler = (e) => {
     e.preventDefault();
-    console.log({ formData });
+    dispatch(addNewIncome(formData));
   };
 
   return (
