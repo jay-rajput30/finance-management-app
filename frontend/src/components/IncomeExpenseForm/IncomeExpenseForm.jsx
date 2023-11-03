@@ -3,6 +3,7 @@ import { INCOME_EXPENSE_CATEGORIES } from "../../../utils/incomeExpense.categori
 import styles from "./IncomeExpenseForm.module.css";
 import { useDispatch } from "react-redux";
 import { addNewIncome } from "../../actions/actions";
+import { SAVING_CATEGORIES } from "../../../utils/saving.categories";
 
 const IncomeExpenseForm = ({ type }) => {
   const [formData, setFormData] = useState({
@@ -53,13 +54,21 @@ const IncomeExpenseForm = ({ type }) => {
             setFormData({ ...formData, category: e.target.value })
           }
         >
-          {INCOME_EXPENSE_CATEGORIES.map((item, idx) => {
-            return (
-              <option key={idx} value={item}>
-                {item}
-              </option>
-            );
-          })}
+          {type === "expense"
+            ? INCOME_EXPENSE_CATEGORIES.map((item, idx) => {
+                return (
+                  <option key={idx} value={item}>
+                    {item}
+                  </option>
+                );
+              })
+            : SAVING_CATEGORIES.map((item, idx) => {
+                return (
+                  <option key={idx} value={item}>
+                    {item}
+                  </option>
+                );
+              })}
         </select>
       </div>
       <div className={styles.incomeExpenseFormItem}>

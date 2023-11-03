@@ -6,7 +6,7 @@ import { getAllIncome } from "../../actions/actions";
 import IncomeList from "../../components/IncomeList/IncomeList";
 const Income = () => {
   const incomes = useSelector((state) => state.incomes);
-
+  const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllIncome());
@@ -14,7 +14,11 @@ const Income = () => {
   return (
     <div className={styles.incomeContainer}>
       <IncomeExpenseForm type="income" />
-      <IncomeList incomeList={incomes} />
+      {loading ? (
+        <p>loading income data...</p>
+      ) : (
+        <IncomeList incomeList={incomes} />
+      )}
     </div>
   );
 };
