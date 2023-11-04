@@ -14,6 +14,9 @@ export const financeReducer = (state = initialState, action) => {
     case "DATA_LOADED": {
       return { ...state, loading: false };
     }
+    case "SET_INCOME_DATA": {
+      return { ...state, incomes: action.payload };
+    }
     case "ADD_INCOME_SUCCESS": {
       return {
         ...state,
@@ -49,6 +52,9 @@ export const financeReducer = (state = initialState, action) => {
     case "GET_EXPENSE_FAILURE": {
       return { ...state, loading: false, error: action.payload };
     }
+    case "SET_SAVING_DATA": {
+      return { ...state, savings: action.payload };
+    }
     case "ADD_SAVING_SUCCESS": {
       return {
         ...state,
@@ -65,6 +71,7 @@ export const financeReducer = (state = initialState, action) => {
     case "GET_SAVING_FAILURE": {
       return { ...state, loading: false, error: action.payload };
     }
+
     default:
       return state;
   }

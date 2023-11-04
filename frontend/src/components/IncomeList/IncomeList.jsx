@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import styles from "./IncomeList.module.css";
-import { setAllExpenses } from "../../actions/actions";
+import { setAllIncomes } from "../../actions/actions";
 import { useEffect } from "react";
 import { SAVING_CATEGORIES } from "../../../utils/saving.categories";
 import { calculateTotalIncome } from "../../../utils/calculateTotal.utli";
@@ -16,9 +16,9 @@ const IncomeList = ({ incomeList }) => {
 
   const sortList = () => {
     if (filters.sort) {
-      dispatch(setAllExpenses(sortAscendingList(incomeList)));
+      dispatch(setAllIncomes(sortAscendingList(incomeList)));
     } else {
-      dispatch(setAllExpenses(sortDescendingList(incomeList)));
+      dispatch(setAllIncomes(sortDescendingList(incomeList)));
     }
   };
   useEffect(() => {
@@ -33,10 +33,10 @@ const IncomeList = ({ incomeList }) => {
   return (
     <section className={styles.incomeListContainer}>
       <div className={styles.incomeListHeader}>
-        {/* <h2>
+        <h2>
           total income: Rs.{" "}
           {incomeList.length < 1 ? "0" : calculateTotalIncome(incomeList)}
-        </h2> */}
+        </h2>
         <div className={styles.filterContainer}>
           <div className={styles.sortCheckboxContainer}>
             <input

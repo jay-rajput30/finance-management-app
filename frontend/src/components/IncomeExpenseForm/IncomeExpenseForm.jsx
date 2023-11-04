@@ -33,6 +33,14 @@ const IncomeExpenseForm = ({ type }) => {
       default:
         return;
     }
+    setFormData({
+      amount: 0,
+      description: "",
+      category:
+        type === "expense"
+          ? INCOME_EXPENSE_CATEGORIES[0]
+          : SAVING_CATEGORIES[0],
+    });
   };
 
   return (

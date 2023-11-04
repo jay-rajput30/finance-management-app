@@ -120,3 +120,11 @@ export const getAllSaving = () => async (dispatch) => {
     dispatch({ type: "DATA_LOADED" });
   }
 };
+
+export const setAllSavings = (savingsData) => {
+  return { type: "SET_SAVING_DATA", payload: savingsData };
+};
+
+export const setAllIncomes = (incomesData) => {
+  return { type: "SET_INCOME_DATA", payload: incomesData };
+};
