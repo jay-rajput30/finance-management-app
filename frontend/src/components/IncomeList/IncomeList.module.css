@@ -5,7 +5,12 @@
   padding: var(--space-2);
   align-items: flex-start;
 }
-
+.incomeListContainer {
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
 .incomeItem {
   border: 1px solid var(--color-primary);
   padding: var(--space-2);
@@ -13,6 +18,26 @@
   border-radius: 5px;
 }
 
+.incomeListHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterContainer select {
+  border: 1px solid var(--color-primary);
+}
+
+.sortCheckboxContainer {
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  font-weight: bolder;
+}
 @media screen and (min-width: 768px) {
   .incomeItemContainer {
     flex-direction: row;

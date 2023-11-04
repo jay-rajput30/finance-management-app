@@ -7,5 +7,5 @@ export const calculateTotalSaving = (savings) => {
 };
 
 export const calculateTotalIncome = (incomes) => {
-  return incomes.reduce((acc, cur) => acc + cur.amount, 0);
+  return incomes?.reduce((acc, cur) => acc + cur.amount, 0);
 };

@@ -7,6 +7,7 @@ import IncomeList from "../../components/IncomeList/IncomeList";
 const Income = () => {
   const incomes = useSelector((state) => state.incomes);
   const loading = useSelector((state) => state.loading);
+  console.log({ incomes });
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllIncome());

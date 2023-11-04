@@ -3,9 +3,9 @@ import { calculateTotalExpense } from "../../../utils/calculateTotal.utli";
 import styles from "./ExpenseList.module.css";
 import { INCOME_EXPENSE_CATEGORIES } from "../../../utils/incomeExpense.categories";
 import {
-  sortAscendingExpenseList,
-  sortDescendingExpenseList,
-} from "../../../utils/expenses.utils";
+  sortAscendingList,
+  sortDescendingList,
+} from "../../../utils/sort.utils";
 import { useDispatch } from "react-redux";
 import { setAllExpenses } from "../../actions/actions";
 
@@ -16,14 +16,15 @@ const ExpenseList = ({ expenseList }) => {
 
   const sortList = () => {
     if (filters.sort) {
-      dispatch(setAllExpenses(sortAscendingExpenseList(expenseList)));
+      dispatch(setAllExpenses(sortAscendingList(expenseList)));
     } else {
-      dispatch(setAllExpenses(sortDescendingExpenseList(expenseList)));
+      dispatch(setAllExpenses(sortDescendingList(expenseList)));
     }
   };
   useEffect(() => {
     sortList();
   }, [filters.sort]);
+
   const filteredExpenseList =
     filters.category === "All"
       ? expenseList

@@ -1,11 +1,11 @@
 import Income from "../models/income.model.mjs";
-import { CATEGORIES } from "../utils/finance.categories.util.mjs";
+import { SAVING_CATEGORIES } from "../utils/saving.categories.mjs";
 
 export const addIncome = async (incomeData) => {
   try {
     const newIncome = new Income(incomeData);
 
-    const categoryFound = CATEGORIES.find(
+    const categoryFound = SAVING_CATEGORIES.find(
       (item) => item === incomeData.category
     );
     if (categoryFound) {

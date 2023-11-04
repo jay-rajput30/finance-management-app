@@ -13,10 +13,12 @@ const IncomeExpenseForm = ({ type }) => {
   const [formData, setFormData] = useState({
     amount: 0,
     description: "",
-    category: INCOME_EXPENSE_CATEGORIES[0],
+    category:
+      type === "expense" ? INCOME_EXPENSE_CATEGORIES[0] : SAVING_CATEGORIES[0],
   });
   const dispatch = useDispatch();
   const incomeExpenseFormSubmitHandler = (e) => {
+    console.log({ formData });
     e.preventDefault();
     switch (type) {
       case "saving":
@@ -29,7 +31,7 @@ const IncomeExpenseForm = ({ type }) => {
         dispatch(addNewExpense(formData));
         break;
       default:
-        dispatch(addNewIncome(formData));
+        return;
     }
   };
 

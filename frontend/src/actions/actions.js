@@ -1,4 +1,5 @@
 export const addNewIncome = (incomeData) => async (dispatch) => {
+  console.log("Add income called");
   try {
     dispatch({ type: "DATA_LOADING" });
     const response = await fetch("http://localhost:3002/income", {
