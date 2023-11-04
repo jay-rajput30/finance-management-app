@@ -11,6 +11,7 @@ const Expense = () => {
   useEffect(() => {
     dispatch(getAllExpense());
   }, [dispatch]);
+
   return (
     <div className={styles.expenseContainer}>
       <IncomeExpenseForm type="expense" />

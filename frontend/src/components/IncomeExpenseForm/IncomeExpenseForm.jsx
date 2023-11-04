@@ -2,7 +2,11 @@ import { useState } from "react";
 import { INCOME_EXPENSE_CATEGORIES } from "../../../utils/incomeExpense.categories";
 import styles from "./IncomeExpenseForm.module.css";
 import { useDispatch } from "react-redux";
-import { addNewIncome } from "../../actions/actions";
+import {
+  addNewExpense,
+  addNewIncome,
+  addNewSaving,
+} from "../../actions/actions";
 import { SAVING_CATEGORIES } from "../../../utils/saving.categories";
 
 const IncomeExpenseForm = ({ type }) => {
@@ -14,7 +18,19 @@ const IncomeExpenseForm = ({ type }) => {
   const dispatch = useDispatch();
   const incomeExpenseFormSubmitHandler = (e) => {
     e.preventDefault();
-    dispatch(addNewIncome(formData));
+    switch (type) {
+      case "saving":
+        dispatch(addNewSaving(formData));
+        break;
+      case "income":
+        dispatch(addNewIncome(formData));
+        break;
+      case "expense":
+        dispatch(addNewExpense(formData));
+        break;
+      default:
+        dispatch(addNewIncome(formData));
+    }
   };
 
   return (

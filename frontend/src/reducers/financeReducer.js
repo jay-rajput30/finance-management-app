@@ -30,6 +30,9 @@ export const financeReducer = (state = initialState, action) => {
     case "GET_INCOME_FAILURE": {
       return { ...state, loading: false, error: action.payload };
     }
+    case "SET_EXPENSE_DATA": {
+      return { ...state, expenses: action.payload };
+    }
     case "ADD_EXPENSE_SUCCESS": {
       return {
         ...state,

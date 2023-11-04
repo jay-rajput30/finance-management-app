@@ -38,10 +38,10 @@ export const getAllIncome = () => async (dispatch) => {
 
 //expense
 
-export const addnewExpense = (expenseData) => async (dispatch) => {
+export const addNewExpense = (expenseData) => async (dispatch) => {
   try {
     dispatch({ type: "DATA_LOADING" });
-    const response = await fetch("http://localhost:3002/income", {
+    const response = await fetch("http://localhost:3002/expense", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -76,9 +76,13 @@ export const getAllExpense = () => async (dispatch) => {
   }
 };
 
+export const setAllExpenses = (expensesData) => {
+  return { type: "SET_EXPENSE_DATA", payload: expensesData };
+};
+
 //saving
 
-export const addewIncome = (savingData) => async (dispatch) => {
+export const addNewSaving = (savingData) => async (dispatch) => {
   try {
     dispatch({ type: "DATA_LOADING" });
     const response = await fetch("http://localhost:3002/saving", {
